@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProductApi.Controllers;
+namespace ContactsApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

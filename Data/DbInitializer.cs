@@ -11,20 +11,8 @@ public static class DbInitializer
         if (!db.Contacts.Any())
         {
             db.Contacts.AddRange(
-                new Contact 
-                { 
-                    Id = Guid.Parse("11111111-1111-1111-1111-111111111111"), 
-                    FirstName = "John", 
-                    LastName = "Doe", 
-                    PhoneNumber = "123-456" 
-                },
-                new Contact 
-                { 
-                    Id = Guid.Parse("11111111-1111-1111-1111-111111111112"), 
-                    FirstName = "Jane", 
-                    LastName = "Smith", 
-                    PhoneNumber = "987-654" 
-                }
+                new Contact (Guid.Parse("11111111-1111-1111-1111-111111111111"), "John", "Doe", "jd@email.com", " 123-456"),
+                 new Contact (Guid.Parse("11111111-1111-1111-1111-111111111112"), "Jane", "Smith", "js@email.com", "987-654" ) 
             );
 
             db.SaveChanges();

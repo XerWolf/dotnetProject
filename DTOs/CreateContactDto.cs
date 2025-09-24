@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 
-namespace dotnetProject.DTOs;
+namespace ContactsApi.DTOs;
 
 public class CreateContactDto
 {

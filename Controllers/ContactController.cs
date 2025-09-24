@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using dotnetProject.Models;
-using dotnetProject.DTOs;
+using ContactsApi.Models;
+using ContactsApi.DTOs;
 
-namespace dotnetProject.Controllers;
+namespace ContactsApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
