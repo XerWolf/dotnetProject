@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using dotnetProject.Models;
+using dotnetProject.DTOs;
 
 namespace dotnetProject.Controllers;
 
@@ -11,22 +13,8 @@ public class ContactController : ControllerBase
 
     // Contact model
     // ...existing code...
-    public class Contact
-    {
-        public Guid Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Phone { get; set; } = string.Empty;
-    }
     
-public class CreateContactDto
-{
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string Phone { get; set; } = string.Empty;
-}
+
 
 [HttpPost]
 public IActionResult CreateContact([FromBody] CreateContactDto contactDto)
@@ -36,14 +24,13 @@ public IActionResult CreateContact([FromBody] CreateContactDto contactDto)
         return BadRequest("Contact data is invalid.");
     }
 
-    var contact = new Contact
-    {
-        Id = Guid.NewGuid(),
-        FirstName = contactDto.FirstName,
-        LastName = contactDto.LastName,
-        Email = contactDto.Email,
-        Phone = contactDto.Phone
-    };
+    var contact = new Contact(
+        contactDto.FirstName,
+        contactDto.LastName,
+        contactDto.Email,
+        contactDto.Phone
+    );
+
     contacts.Add(contact);
     return CreatedAtAction(nameof(GetContact), new { id = contact.Id }, contact);
 }
